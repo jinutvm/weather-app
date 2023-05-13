@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-DOM</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <button onclick="
+        let computerSelection = pickComputerMove();
+        pickWinner(computerSelection,'Rock');
+    ">Rock</button>
+
+    <button onclick="
+        let computerSelection = pickComputerMove();
+        pickWinner(computerSelection,'Paper');
+    ">Paper</button>
+
+    <button onclick="
+        let computerSelection = pickComputerMove();
+        pickWinner(computerSelection,'Scissors');
+    ">Scissors</button>
+
+    <p class="js-winner"></p>
+    <p class="js-selections"></p>
+    <p class="js-scores">Wins: 0 Losses:0 Ties:0</p>
+
+    <button onclick="
+        scores.win = 0; scores.loss = 0; scores.ties = 0;
+        localStorage.removeItem('score');
+        document.querySelector('.js-scores').innerHTML = `Wins: ${scores.win} Losses: ${scores.loss} Ties: ${scores.ties}`
+        document.querySelector('.js-selections').innerHTML = ''
+        document.querySelector('.js-winner').innerHTML = ''
+    ">Reset Score</button>
+    
+    <script>
+    
+    let scores = JSON.parse(localStorage.getItem('score')) || {
+        win: 0,
+        loss: 0,
+        ties: 0
+    }
+
+    function pickComputerMove() {
+        let computerRandom = Math.random();
+        let computerSelection = '';
+        if (computerRandom>0 && computerRandom <0.33) {
+            computerSelection = 'Rock';
+        } else if (computerRandom >=0.33 && computerRandom < 0.66) {
+            computerSelection = 'Paper';
+        } else {
+            computerSelection = 'Scissors';
+        }
+        return computerSelection;
+    }
+
+    function pickWinner(computerSelection,yourSelection) {
+        if (yourSelection == computerSelection) {
+            console.log(`Computer selected ${computerSelection}. Result is Tie`)
+            document.querySelector('.js-winner').innerHTML = 'Tie.'
+            scores.ties += 1
+            console.log (`Wins: ${scores.win} Losses: ${scores.loss} Ties: ${scores.ties}`)
+            return
+        }
+        if (yourSelection == 'Rock') {
+            if (computerSelection == 'Paper') {
+                document.querySelector('.js-winner').innerHTML = 'Computer WON.'
+                console.log(`Computer selected ${computerSelection}. Computer WON`)
+                scores.loss += 1
+            } else {
+                document.querySelector('.js-winner').innerHTML = 'You WON.'
+                console.log(`Computer selected ${computerSelection}. You WON`)
+                scores.win += 1
+            }
+        }
+        if (yourSelection == 'Paper') {
+            if (computerSelection == 'Scissors') {
+                document.querySelector('.js-winner').innerHTML = 'Computer WON.'
+                console.log(`Computer selected ${computerSelection}. Computer WON`)
+                scores.loss += 1
+            } else {
+                document.querySelector('.js-winner').innerHTML = 'You WON.'
+                console.log(`Computer selected ${computerSelection}. You WON`)
+                scores.win += 1 
+            }
+        }
+        if (yourSelection == 'Scissors') {
+            if (computerSelection == 'Rock') {
+                console.log(`Computer selected ${computerSelection}. Computer WON`)
+                scores.loss += 1
+            } else {
+                console.log(`Computer selected ${computerSelection}. You WON`)
+               scores.win += 1 
+            }
+        }
+        console.log (`Wins: ${scores.win} Losses: ${scores.loss} Ties: ${scores.ties}`)
+        document.querySelector('.js-scores').innerHTML = `Wins: ${scores.win} Losses: ${scores.loss} Ties: ${scores.ties}`
+        document.querySelector('.js-selections').innerHTML = `You ${yourSelection} - ${computerSelection} Computer`
+        localStorage.setItem('score', JSON.stringify(scores))
+    }
+    </script>
+</body>
+</html>

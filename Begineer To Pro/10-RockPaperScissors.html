@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-RockPaperScissors</title>
+    <link rel="stylesheet" href="styles/10-RockPaperScissors.css">
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    
+    <button onclick="
+        let computerSelection = pickComputerMove();
+        pickWinner(computerSelection,'rock');
+    " class="move-button"><img src="images/rock-emoji.png" alt="" class="move-icon"></button>
+
+    <button onclick="
+        let computerSelection = pickComputerMove();
+        pickWinner(computerSelection,'paper');
+    " class="move-button"><img src="images/paper-emoji.png" alt="" class="move-icon"></button>
+
+    <button onclick="
+        let computerSelection = pickComputerMove();
+        pickWinner(computerSelection,'scissors');
+    " class="move-button"><img src="images/scissors-emoji.png" alt="" class="move-icon"></button>
+
+    <p class="js-winner winner-desc"></p>
+    <p class="js-selections selections-desc"></p>
+    <p class="js-scores"></p>
+
+    <button onclick="
+        scores.win = 0; scores.loss = 0; scores.ties = 0;
+        localStorage.removeItem('score');
+        document.querySelector('.js-scores').innerHTML = `Wins: ${scores.win} Losses: ${scores.loss} Ties: ${scores.ties}`
+        document.querySelector('.js-selections').innerHTML = ''
+        document.querySelector('.js-winner').innerHTML = ''
+    " class="reset-button">Reset Score</button>
+    
+    <script src="scripts/10-RockPaperScissors.js"></script>
+</body>
+</html>

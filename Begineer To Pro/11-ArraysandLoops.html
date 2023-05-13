@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11-Arrays&Loops</title>
+    <link rel="stylesheet" href="styles/11-ArraysandLoops.css">
+</head>
+<body>
+    
+    <p>Todo List1</p>
+    <input placeholder="Todo name" class="input-data" onkeydown="
+    event.key === 'Enter' && addTodoList(); ">
+    <button onclick="
+        addTodoList();
+    ">Add</button>
+
+    <p>Todo List2</p>
+    <input placeholder="Todo name" class="input-data2" onkeydown="
+    event.key === 'Enter' && addTodoList2(); ">
+    <button onclick="
+        addTodoList2();
+    ">Add</button>
+    <div class="display-list2"></div>
+
+    <p>Todo List</p>
+    <div class="todo-grid-input">
+        <input placeholder="Todo name" class="input-data3 name-input">
+        <input type="date" class="input-date3 due-date-input">
+        <button onclick="
+            addTodoList3();
+        " class="add-button">Add</button>
+    </div>
+    <div class="display-list3 todo-grid"></div>
+
+
+
+    <script src="scripts/11-ArraysandLoops.js"></script>
+</body>
+</html>

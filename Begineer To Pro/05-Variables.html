@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script Begineer to Pro</title>
+</head>
+<body>
+    <h1>05-Variables</h1>
+    <button onclick="
+     displayCount += 1
+     console.log(`${displayCount}. Cart Quantity : ${cartQuantity}`);
+    ">Show Quantity</button>
+    
+    <button onclick="
+        cartQuantity += 1;
+        displayCount += 1
+        console.log(`${displayCount}. Cart Quantity : ${cartQuantity}`);
+    ">Add to Cart</button>
+    <button onclick="
+        cartQuantity +=2;
+        displayCount += 1
+        console.log(`${displayCount}. Cart Quantity : ${cartQuantity}`);
+
+    ">+2</button>
+    <button onclick="
+        cartQuantity +=3;
+        displayCount += 1
+        console.log(`${displayCount}. Cart Quantity : ${cartQuantity}`);
+    ">+3</button>
+    <button onclick="
+        cartQuantity = 0;
+        displayCount += 1
+        console.log(`${displayCount}. Cart Quantity Resetted`)
+        displayCount += 1
+        console.log(`${displayCount}. Cart Quantity : ${cartQuantity}`);
+    ">Reset Cart</button>
+
+    <script>
+        let cartQuantity = 0;
+        let displayCount = 0; 
+
+        console.log(eval(2342+333))
+    </script>
+</body>
+</html>

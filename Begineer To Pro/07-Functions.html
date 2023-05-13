@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script Begineer to Pro</title>
+</head>
+<body>
+    <h1>07-Functions</h1>
+    <script>
+        function function1 () {
+            console.log('hello');
+            console.log(2+2);
+        }
+
+        function1();
+        
+        function calculateTax(cost) {
+            console.log(cost*0.1)
+        }
+
+        calculateTax(5000);
+        calculateTax(2000);
+        calculateTax(10000);
+
+        function calculateTax1(cost, taxPercentage = 0.1) {
+            console.log(cost*taxPercentage)
+        }
+
+        calculateTax1(5000,0.2);
+        calculateTax1(2000,0.3);
+        calculateTax1(10000,0.4);
+    </script>
+</body>
+</html>

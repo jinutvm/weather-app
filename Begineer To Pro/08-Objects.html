@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script Begineer to Pro</title>
+</head>
+<body>
+    <h1>08-Objects</h1>
+    <button onclick=" 
+            product.prize=localStorage.getItem('quantity')
+            prize1= Number(product.prize)
+            console.log(typeof prize1)
+            prize1+=200
+            console.log(prize1)
+            localStorage.setItem('quantity',prize1)
+            
+    ">+2</button>
+
+    <script>
+        const product = {
+            name: 'socks',
+            prize: 10,
+            quantity: 30,
+            'delivery-time': '1 day',
+            rating: {
+                stars: 4.7,
+                count: 87
+            },
+            fun: function display1() {
+                console.log('From inside function');
+            }
+        };
+        let prize1;
+        /*console.log(product.rating.stars);
+        console.log(typeof product.fun);
+        product.fun();
+        
+        console.log(product)
+        console.log(JSON.stringify(product))
+        console.log(typeof JSON.stringify(product))
+
+        newTestJson = JSON.stringify(product)
+        console.log(JSON.parse(newTestJson))
+        
+        console.log(product.prize)*/
+        console.log(product.prize)
+        console.log(localStorage.getItem('quantity'))
+
+
+
+
+
+
+
+        /*console.log(product);
+        console.log(product.name);
+        console.log(product.prize);
+
+        product.name = 'cotton socks'
+        console.log(product);
+        console.log(product.name);
+        console.log(product.prize);
+
+        product.region = 'India'
+        console.log(product)
+
+        delete product.region;
+        console.log(product)
+        console.log(typeof product)
+        console.log(product['delivery-time'])*/
+        
+        const object4 = {
+            message: 'Hello',
+            //method: function function1 () {
+            //    console.log('Inside method')
+            method() {
+                console.log('Inside method')
+            }
+            }
+        
+        object4.method()
+        //let message = object4.message
+        //let {message} = object4;
+
+    </script>
+</body>
+</html>

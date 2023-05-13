@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script Begineer to Pro</title>
+</head>
+<body>
+    <h1>07-Rock Paper Scissors</h1>
+    <script>
+        let computerSelection = '';
+        let computerRandom = 0;
+        let computerWinCount = 0;
+        let yourWinCount = 0;
+        let yourSelection = '';
+        const scores = {
+            wins: 0,
+            looses: 0,
+            ties:0
+        };
+    function pickComputerMove() {
+        computerRandom = Math.random();
+        let computerSelection = '';
+        if (computerRandom>0 && computerRandom <0.33) {
+            computerSelection = 'Rock';
+        } else if (computerRandom >=0.33 && computerRandom < 0.66) {
+            computerSelection = 'Paper';
+        } else {
+            computerSelection = 'Scissors';
+        }
+        return computerSelection;
+    }
+    function pickWinner(computerSelection,yourSelection) {
+        if (yourSelection == computerSelection) {
+            console.log(`Computer selected ${computerSelection}. Result is Tie`)
+            scores.ties += 1
+            console.log (`Computer Score ${computerWinCount}, Your Score ${yourWinCount}`)
+            return
+        }
+        if (yourSelection == 'Rock') {
+            if (computerSelection == 'Paper') {
+                console.log(`Computer selected ${computerSelection}. Computer WON`)
+                scores.looses += 1
+                computerWinCount += 1
+            } else {
+                console.log(`Computer selected ${computerSelection}. You WON`)
+                scores.wins += 1
+                yourWinCount += 1
+            }
+        }
+        if (yourSelection == 'Paper') {
+            if (computerSelection == 'Scissors') {
+                console.log(`Computer selected ${computerSelection}. Computer WON`)
+                scores.looses += 1
+                computerWinCount += 1
+            } else {
+                console.log(`Computer selected ${computerSelection}. You WON`)
+                scores.wins += 1 
+                yourWinCount += 1
+            }
+        }
+        if (yourSelection == 'Scissors') {
+            if (computerSelection == 'Rock') {
+                console.log(`Computer selected ${computerSelection}. Computer WON`)
+                scores.looses += 1
+                computerWinCount += 1
+            } else {
+                console.log(`Computer selected ${computerSelection}. You WON`)
+                scores.wins += 1 
+                yourWinCount += 1
+            }
+        }
+        console.log (`Computer Score ${computerWinCount}, Your Score ${yourWinCount}`)
+
+        
+ 
+    }
+    </script> 
+    <button onclick="
+        computerSelection = pickComputerMove();
+        pickWinner(computerSelection, 'Rock')
+    ">Rock</button>
+    <button onclick="
+        computerSelection = pickComputerMove();
+        pickWinner(computerSelection, 'Scissors')
+
+        ">Scissors</button>
+    <button onclick="
+        computerSelection = pickComputerMove();
+        pickWinner(computerSelection, 'Paper')
+    ">Paper</button>
+    <button onclick="
+        console.log(`Wins : ${scores.wins} Lost : ${scores.looses} Ties : ${scores.ties}`)
+    ">Your Score</button>
+    <button onclick="
+        computerWinCount = 0;
+        yourWinCount = 0;
+        scores.wins = 0; scores.looses = 0; scores.ties =0;
+        console.log('Scores resetted')
+    ">Reset</button> 
+</body>
+</html>
